@@ -1,1 +1,47 @@
+# Example settings file for FintorAI Python Trading Bot Starter
+
+bot:
+  name: "FintorAI Starter Bot"
+  mode: "paper"          # paper | live
+  base_currency: "USDT"
+  log_level: "INFO"      # DEBUG | INFO | WARNING | ERROR
+
+exchanges:
+  binance:
+    enabled: true
+    api_key: "YOUR_BINANCE_API_KEY"
+    api_secret: "YOUR_BINANCE_API_SECRET"
+    testnet: true
+
+  bybit:
+    enabled: false
+    api_key: ""
+    api_secret: ""
+    testnet: true
+
+data:
+  timeframe: "1h"
+  max_candles: 500
+  symbols:
+    - "BTCUSDT"
+    - "ETHUSDT"
+
+risk:
+  max_open_positions: 3
+  risk_per_trade: 0.01      # 1% per trade
+  max_daily_drawdown: 0.05  # 5% per day
+
+strategy:
+  module: "strategies.sample_trend"
+  class: "SampleTrendStrategy"
+  params:
+    ma_fast: 20
+    ma_slow: 50
+    atr_period: 14
+    atr_mult: 2.0
+
+logging:
+  path: "logs"
+  rotate: true
+  backup_count: 7
 
